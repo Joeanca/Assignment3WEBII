@@ -2,6 +2,10 @@
 
 <?php
 session_start();
+if(empty($_SESSION['UserID'])){
+    $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
+    header("Location:/login.php");
+}
 require_once('includes/config.php'); 
 include_once('includes/bookFunctions.inc.php')
 ?>

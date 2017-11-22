@@ -1,84 +1,52 @@
-
-<?php 
-    
-include "includes/importStatements.inc.php";
-        include_once('includes/sessionFunctions.inc.php');
-        ?>
-
+<?php
+ session_start();
+    // if( strcasecmp($_SERVER['REQUEST_METHOD'],"POST") === 0) {
+    //      $_SESSION['postdata'] = $_POST;
+    //     header("Location: ".$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING']);
+    // exit;
+    // }
+    if(isset($_SESSION['UserID'])){
+        session_destroy();
+    }if
+    ( isset($_SESSION['postdata'])) {
+        $_POST = $_SESSION['postdata'];
+        unset($_SESSION['postdata']);
+        $_SESSION = array();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Login</title>
         <meta charset="UTF-8">
-            <?php include "includes/importStatements.inc.php"; 
-            $loginInstance = new LoginGateway();
+        <link rel="stylesheet" href="css/styles.css" />
+      
+<?php 
+    include "includes/importStatements.inc.php"; 
+    $loginInstance = new LoginGateway();
 ?>
         
     </head>
+    <style type="text/css">
+        .highlight {
+    background-color: #FFE0B2;
+}    
+.error {
+    background: #FFCDD2 url(/images/error.png) no-repeat 98% center !important;
+    box-shadow: 0 0 5px #FF5252;
+    /*border-color: #FF1744;    */
+}
+    </style>
     <body>
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawe mdl-layout--fixed-header">
-            <header class="mdl-layout__header">
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawe mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
-            </header>
- 
-            <style>
-                .card-me{
-                    padding-left:25px;
-                    padding-right:25px;
-                    padding-bottom:25px;
-                }
-            </style>
+            <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
+    </header>
 
 <?php
-//If the fields aren't blank, check the database to see if the userName exists
-
-// session_start():
-//     if (isset($POST['uname'])) {
-//         if (validateUser($_POST['uname'], $_POST['pwrd'])) {
-//             $_SESSION['user'] = $_POST['uname'];
-//             echo HomeScreen();
-//         } else {
-//             echo LoginFormErrorPage();
-//         }
-//     }
-
-    
-    if(isset($_POST['username']) && isset($_POST['password'])) {
-        session_start();
-        $uName =$_POST['username'];
-        $object = $loginInstance->getUserName($uName);
-        $checkIfExists = $object[0];
-        if ($checkIfExists != ""){
-            $userName = $_POST['username'];
-            $password = $_POST['password'];
-            $temp = $loginInstance->getSalt($userName);
-            $salt = $temp[0]['Salt'];
-            $object2 = $loginInstance->getPassword($userName);
-            $passwordCheck = $object2[0]['Password'];
-            $saltyPassword = md5($password.$salt);
-            if ($saltyPassword == $passwordCheck){
-                $email = $_POST['username'];
-                $firstName = $loginInstance->getFirstName($userName);
-                $lastName = $loginInstance->getLastName($userName);
-                $uID = $loginInstance->getUserID($uName);
-                //setSession($uID);
-                $_SESSION['UserID'] = $uID[0]['UserID'];
-                $previousPage = $_SERVER['HTTP_REFERER'];
-                header("Location:/index.php");
-            } else {
-                //Echo incorrect password
-                echo "passwords incorrect";
-            }
-        } else {
-            //echo incorrect login
-            echo "doesn't exist waka waka";
-        }
-        } 
-
-
+    include "includes/loginFunctions.inc.php";
 ?>
-            
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class="mdl-grid">
@@ -94,14 +62,14 @@ include "includes/importStatements.inc.php";
                         <h4 align="center">Login</h4>
                 <div align="center">
                     
-                    <form action ="/login.php" method="post">
+                    <form id="mainForm" action ="/login.php" method="post">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="username">
-                            <label class="mdl-textfield__label" for="username">Username</label>
+                            <input class="mdl-textfield__input required hilightable" type="text" name="username">
+                            <label class="mdl-textfield__label " for="username">Username</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" name="password">
+                            <input class="mdl-textfield__input required hilightable" type="password" name="password">
                             <label class="mdl-textfield__label" for="password">Password</label>
                         </div>
                         
@@ -127,7 +95,46 @@ include "includes/importStatements.inc.php";
         </main>
 
         </div>
-        
-    </body>
+<script>
+    window.addEventListener('load', start);
+function start(){
+    var highlights = document.getElementsByClassName("hilightable");
+    for (i=0; i<highlights.length; i++) {
+        highlights[i].addEventListener("focus", function(){
+            this.classList.toggle("hilightable");
+        });
+        highlights[i].addEventListener("blur", function(){
+            if (this.value == '' && this.classList.contains("required")){
+                this.classList.add("error");
+            }else {
+                this.classList.remove("error");
+            }
+            this.classList.toggle("hilightable");
+        }); 
+    }
+    document.getElementById('mainForm').addEventListener("submit", function(e){
+        e.preventDefault();
+        var required = document.getElementsByClassName("required");
+        var ready = false;
+        for (i=0; i<required.length; i++) {
+            if (required[i].value == ""){
+               required[i].classList.add("error");
+               required[i].addEventListener("input", function(){
+                  this.classList.remove("error") ;
+               });
+               ready = false;
+               break;
+            } else {
+                ready = true;
+            }
+        }    
+        if (ready){
+        $(this).unbind('submit').submit();}
+    })
+
+}
+</script>
+
+</body>
     
 </html>

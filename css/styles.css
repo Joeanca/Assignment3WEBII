@@ -1,4 +1,11 @@
 
+.card-me{
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:25px;
+}
+
+
 .book_image{
     height: 320px;
 }
@@ -137,6 +144,22 @@
 
 .mdl-cell mdl-cell--12-col card-lesson mdl-card mdl-shadow--2dp{
     display:none;
+}
+.error {
+    background: #FFCDD2 url(error.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #FF5252;
+    border-color: #FF1744;    
+}
+.highlight {
+    background-color: #FFE0B2;
+}
+.highlight {
+    background-color: #FFE0B2;
+}    
+.error {
+    background: #FFCDD2 url(/images/error.png) no-repeat 98% center !important;
+    box-shadow: 0 0 5px #FF5252;
+    border-color: #FF1744;    
 }
 @media screen and (max-width: 480px){
     .card{

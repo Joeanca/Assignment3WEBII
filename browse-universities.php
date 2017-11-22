@@ -3,6 +3,10 @@
 
 <?php
 session_start();
+if(empty($_SESSION['UserID'])){
+    $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
+    header("Location:/login.php");
+}
 require_once('includes/config.php'); 
 include_once('includes/universityFunctions.inc.php')
 ?>
@@ -14,7 +18,6 @@ include_once('includes/universityFunctions.inc.php')
     <?php 
         include "includes/importStatements.inc.php"; 
         $universityInstance = new UniversitiesGateway();
-        //include "includes/jscriptFunctions.inc.js";
     ?>
     <link rel="stylesheet" href="css/style.css">
 </head>
