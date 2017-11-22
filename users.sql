@@ -1,5 +1,6 @@
 USE `book`;
 
+
 #
 # Table structure for table 'Users'
 #
