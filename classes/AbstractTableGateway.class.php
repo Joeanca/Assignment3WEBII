@@ -1,5 +1,5 @@
 <?php
-include('includes/config.php');
+include('AdapterFactory.class.php');
 
 
 
