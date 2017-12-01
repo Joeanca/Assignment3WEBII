@@ -115,23 +115,88 @@ include_once('includes/analytics.inc.php');
                             </div>
                         </div>
                     </div>                    
-                            <div class='mdl-cell mdl-cell--6-col mdl-card__title-text'></div>
-                            <div class='mdl-cell mdl-cell--middle mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;"><div style="padding-top: 20px;">Top 10 Adopted Books</div></div>
                     <?php $countryArray=$analyticsInstance->getTopFifteenUniversities();
                     analyticsJS($countryArray);?>
                     <div class="mdl-cell mdl-cell--6-col mdl-cell--top book-container demo-card-square" style="text-align:center">
                         <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Top 15 Visiting Countries</div>
                         <div id="regions_div" style="width: 100%; height: auto;"></div>
                     </div>
-                            <div class='mdl-cell mdl-cell--middle mdl-cell--12-col mdl-cell--hide-desktop mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;"><div style="padding-top: 20px;">Top 10 Adopted Books</div></div>
+                    
+                  <div class="mdl-cell mdl-cell--5-col mdl-cell--top book-container demo-card-square" style="text-align:center">
+                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
+                        <div id="top10books" style="width: 100%; height: auto;">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
+                                    <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
+                                    <label for="sample2">
+                                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                                    </label>
+                                    <label for="sample2" class="mdl-textfield__label">Country</label>
+                                    <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                        <li class="mdl-menu__item" data-val="DE">Germany</li>
+                                        <li class="mdl-menu__item" data-val="BY">Belarus</li>
+                                        <li class="mdl-menu__item" data-val="RU">Russia</li>
+                                </ul>
+                        </div>
+                            <div class="typo-styles__demo mdl-typography--title">
+                                <p">This is a trial for the text direction</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <div class='mdl-cell mdl-cell--middle mdl-cell--12-col  mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;"><div style="padding-top: 20px;">Top 10 Adopted Books</div></div>
 
                     <!--<div class="mdl-cell mdl-cell--6-col mdl-cell--top ">-->
                     <!--<div class="mdl-grid mdl-grid--no-spacing">-->
+         <!--HERE IS THE TABLE-->
+             <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
+
+                    <table class="mdl-data-table mdl-js-data-table dl-shadow--2dp" style="width: -webkit-fill-available;">
+                      <thead>
+                        <tr>
+                          <th class="mdl-data-table__cell--non-numeric">Book Cover</th>
+                          <th class="mdl-data-table__cell--non-numeric">Title</th>
+                          <th>Adoption Qty</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                       
+                      
+                    
                     <?php 
                      $bookList = $analyticsInstance->getTopTenBooks();
                     foreach ($bookList as $book){
                         ?>
-                <!--The list should contain a thumbnail of the cover, the title, the year, subcategory name, and imprint name.-->
+                        <tr style="height:190px">
+                            <td class="mdl-data-table__cell--non-numeric"><div class="mdl-card__title">
+                                <img class="dashboard-card" src="book-images/tinysquare/<?php echo $book['ISBN10'] ?>.jpg" style="padding: 10px;"/>
+                                </div>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric"><?php echo $book['Title']?></td>
+                            <td><?php echo $book['adopted'];?></td>
+                        </tr>
+                <?php 
+                ;}
+                ?>  
+                </tbody>
+                    </table>
+                    </div>
+            </div>
+            
+
+        </section>
+    </main>
+</div>
+
+<div></div>
+
+<?php
+echo counter();
+?>
+</body>
+</html>
+/*
+<!--The list should contain a thumbnail of the cover, the title, the year, subcategory name, and imprint name.-->
                     <!-- Wide card with share menu button -->
                  <div class='mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone'>
                   <div class='book-container grow demo-card-square mdl-shadow--2dp card '>
@@ -161,20 +226,4 @@ include_once('includes/analytics.inc.php');
                         </div>
               </div>            
               </div>
-                <?php 
-                ;
-                }      ?>  
-            </div>
-            
-
-        </section>
-    </main>
-</div>
-
-<div></div>
-
-<?php
-echo counter();
-?>
-</body>
-</html>
+              */
