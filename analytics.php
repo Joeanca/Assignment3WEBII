@@ -112,17 +112,22 @@ require_once('includes/config.php');
                     <div class="mdl-cell mdl-cell--6-col card-lesson mdl-card  mdl-shadow--2dp">
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square " style="text-align:center">
                             <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Top 15 Visiting Countries</div>
-                            <div id="regions_div" style="width: 100%; height: auto;"></div>
+                            <div class='mdl-cell mdl-cell--12-col '><div id="regions_div" style="width: 100%; height: auto;"></div></div>
+                            
                         </div>
                      </div>
                     <div id="right-container-analytics"  class="mdl-cell mdl-cell--6-col mdl-grid " style="text-align:center">
-                        <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-grid--no-spacing mdl-shadow--2dp">
-                        <!--<div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Visits Per Month</div>-->
-                        <div id="chart_div" class='mdl-cell mdl-cell--12-col   ' style="width: 100%; height: 100%; text-align:-webkit-center"></div>
+                             <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square " style="text-align:center">
+                            <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Visits Per Month</div>
+                            <div class='mdl-cell mdl-cell--12-col '><div id="chart_div" style="width: 100%; height: auto;"></div></div>
+                            
                         </div>
+                     </div>
                         <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing ">
+
                          <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-                        <div class='mdl-cell mdl-cell--12-col '>Country Details</div>
+                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
                         <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
                                     <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
@@ -146,9 +151,9 @@ require_once('includes/config.php');
                     </div>
                  
                   
-             <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-              <div class='mdl-cell mdl-cell--middle mdl-cell--12-col  mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;">
-                <div style="padding-top: 20px;">Top 10 Adopted Books</div></div>
+             <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square">
+              <div class=' mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;">
+                <div style="padding: 20px;">Top 10 Adopted Books</div>
                     <table class="mdl-data-table mdl-js-data-table dl-shadow--2dp" style="width: -webkit-fill-available;">
                       <thead>
                         <tr>
@@ -169,11 +174,12 @@ require_once('includes/config.php');
                             <td class="mdl-data-table__cell--non-numeric">
                             <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' href="./single-book.php?i10=<?php echo $book['ISBN10']?>">
                             <?php echo $book['Title']?></a></td>
-                            <td><?php echo $book['adopted'];?></td>
+                            <td class="mdl-data-table__cell--numeric" style="color:black"><?php echo $book['adopted'];?></td>
                         </tr>
                 <?php ;} ?>  
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 </section>
