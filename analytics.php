@@ -115,7 +115,7 @@ require_once('includes/config.php');
                             <div id="regions_div" style="width: 100%; height: auto;"></div>
                         </div>
                      </div>
-                    <div class="mdl-cell mdl-cell--6-col mdl-grid " style="text-align:center">
+                    <div id="right-container-analytics"  class="mdl-cell mdl-cell--6-col mdl-grid " style="text-align:center">
                         <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-grid--no-spacing mdl-shadow--2dp">
                         <!--<div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Visits Per Month</div>-->
                         <div id="chart_div" class='mdl-cell mdl-cell--12-col   ' style="width: 100%; height: 100%; text-align:-webkit-center"></div>
