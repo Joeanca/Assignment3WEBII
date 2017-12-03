@@ -109,10 +109,10 @@ require_once('includes/config.php');
                             </div>
                         </div>
                     </div>                    
-                    <div class="mdl-cell mdl-cell--6-col card-lesson mdl-card  mdl-shadow--2dp">
-                        <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square " style="text-align:center">
-                            <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Top 15 Visiting Countries</div>
-                            <div class='mdl-cell mdl-cell--12-col '><div id="regions_div" style="width: 100%; height: auto;"></div></div>
+                    <div class="mdl-cell mdl-cell--6-col card-lesson mdl-card  mdl-shadow--2dp" >
+                        <div  class="mdl-cell mdl-cell--12-col mdl-cell--middle mdl-grid book-container demo-card-square " style="text-align:center;min-height: 100% !important" >
+                            <div class='mdl-cell mdl-cell--12-col mdl-cell--top mdl-card__title-text'>Top 15 Visiting Countries</div>
+                            <div class='mdl-cell mdl-cell--12-col mdl-cell--stretch' style="height: 100% !important"><div id="regions_div" style="width: 100%; height: auto;"></div></div>
                             
                         </div>
                      </div>
