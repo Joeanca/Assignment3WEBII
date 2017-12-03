@@ -48,7 +48,7 @@ class AnalyticsGateway extends AbstractTableGateway {
         return $this->getSpecific("Select CountryName, count(*) as visit from BookVisits JOIN Countries on Countries.CountryCode = BookVisits.CountryCode Group BY BookVisits.CountryCode HAVING visit > 10 ORDER BY visit DESC limit 10");
     }
     public function getVisitsPerDay(){
-        return $this->getSpecific("select `DateViewed`, count(DISTINCT `IpAddress`) as 'Total Visits' from BookVisits WHERE  `DateViewed` >  '06\/01-\/2017*' AND  `DateViewed` <  '06\/31-\/2017*' GROUP BY `DateViewed`");
+        return $this->getSpecific("select `DateViewed`, count(DISTINCT `IpAddress`) as 'Total Visits' from BookVisits WHERE  `DateViewed` >=  '06\/01-\/2017*' AND  `DateViewed` <=  '06\/31-\/2017*' GROUP BY `DateViewed`");
     }
     
 }

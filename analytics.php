@@ -109,20 +109,21 @@ require_once('includes/config.php');
                             </div>
                         </div>
                     </div>                    
-                    <?php $countryArray=$analyticsInstance->getTopFifteenUniversities();
-                    //analyticsJS($countryArray);?>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Top 15 Visiting Countries</div>
-                        <div id="regions_div" style="width: 100%; height: auto;"></div>
-                    </div>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Visits Per Month</div>
-                        <div id="chart_div" style="width: 100%; height: auto;"></div>
-                    </div>
-                    
-                  <div class="mdl-cell mdl-cell--5-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
-                        <div id="top10books" style="width: 100%; height: auto;">
+                    <div class="mdl-cell mdl-cell--6-col card-lesson mdl-card  mdl-shadow--2dp">
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square " style="text-align:center">
+                            <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Top 15 Visiting Countries</div>
+                            <div id="regions_div" style="width: 100%; height: auto;"></div>
+                        </div>
+                     </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-grid " style="text-align:center">
+                        <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-grid--no-spacing mdl-shadow--2dp">
+                        <!--<div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Visits Per Month</div>-->
+                        <div id="chart_div" class='mdl-cell mdl-cell--12-col   ' style="width: 100%; height: 100%; text-align:-webkit-center"></div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing ">
+                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
+                        <div class='mdl-cell mdl-cell--12-col '>Country Details</div>
+                        <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
                                     <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
                                     <label for="sample2">
@@ -136,11 +137,15 @@ require_once('includes/config.php');
                                     </ul>
                                 </div>
                             <div class="typo-styles__demo mdl-typography--title">
-                                <p">This is a trial for the text direction</p>
+                                <p>This is a trial for the text direction</p>
                             </div>
                         </div>
                     </div>
-               
+                        </div>
+                        
+                    </div>
+                 
+                  
              <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
               <div class='mdl-cell mdl-cell--middle mdl-cell--12-col  mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;">
                 <div style="padding-top: 20px;">Top 10 Adopted Books</div></div>
