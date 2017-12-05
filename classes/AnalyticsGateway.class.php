@@ -23,7 +23,7 @@ class AnalyticsGateway extends AbstractTableGateway {
     }
     
     public function getVisits(){
-        return $this->GetSpecific("Select VisitID, CountryName from BookVisits JOIN Countries on Countries.CountryCode = BookVisits.CountryCode");
+        return $this->GetSpecific("Select VisitID, CountryName, CountryCode from BookVisits JOIN Countries on Countries.CountryCode = BookVisits.CountryCode");
     }
     public function getTopTenBooks(){
         return $this->getSpecific("SELECT ISBN10, ISBN13, Title,  `BookID` , COUNT( * ) AS  `adopted` FROM AdoptionBooks JOIN Books USING ( BookID ) GROUP BY  `BookID` ORDER BY adopted DESC LIMIT 10");
@@ -39,6 +39,16 @@ class AnalyticsGateway extends AbstractTableGateway {
     }
     public function getToDo(){
         return $this->getSpecific("SELECT COUNT( * ) AS  `todocount` FROM EmployeeToDo WHERE  `DateBy` >  '2017-06-01*' AND  `DateBy` <  '2017-06-31*'")[0][todocount];
+    }
+    public function getTop15Countries(){
+         return $this->getSpecific("SELECT  `CountryName` , CountryCode, COUNT( * )  AS  `adopted` FROM BookVisits JOIN Countries  USING (CountryCode) GROUP BY  `CountryCode` ORDER BY adopted DESC LIMIT 15");
+
+    }
+     public function get10TopVisitingCountries(){
+        return $this->getSpecific("Select CountryName, count(*) as visit from BookVisits JOIN Countries on Countries.CountryCode = BookVisits.CountryCode Group BY BookVisits.CountryCode HAVING visit > 10 ORDER BY visit DESC limit 10");
+    }
+    public function getVisitsPerDay(){
+        return $this->getSpecific("select `DateViewed`, count(DISTINCT `IpAddress`) as 'Total Visits' from BookVisits WHERE  `DateViewed` >=  '06\/01-\/2017*' AND  `DateViewed` <=  '06\/31-\/2017*' GROUP BY `DateViewed`");
     }
     
 }

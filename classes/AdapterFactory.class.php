@@ -4,7 +4,7 @@
             if (class_exists($type)){
                 // echo "IM INSIDE THE IF PEOPLE";
 
-                return new PDO('mysql:dbname=book;charset=utf8mb4;','testUser', 'mypassword');
+                return new PDO('mysql:dbname=book;charset=utf8mb4;','testuser', 'mypassword');
             }  else {
                 // echo "NOT INSIDE THE IF";
                 return new MySQLi();

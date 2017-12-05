@@ -1,4 +1,8 @@
-
+#right-container-analytics{
+    text-align: center;
+    padding:0px;
+    margin:0px;
+}
 .card-me{
     padding-left:25px;
     padding-right:25px;
@@ -160,6 +164,9 @@
     background: #FFCDD2 url(/images/error.png) no-repeat 98% center !important;
     box-shadow: 0 0 5px #FF5252;
     border-color: #FF1744;    
+}
+.analytics-table-background{
+   text-align:center !important;
 }
 @media screen and (max-width: 480px){
     .card{
