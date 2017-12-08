@@ -20,6 +20,13 @@ function loadStats(jsonData){
     document.getElementById("totalVisits").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['visits'][0] + "</span>";
 }
 
+$.getJSON("json/service-topAdoptedBooks.php", loadAdoptedBooks);
+
+function loadAdoptedBooks(jsonData){
+    console.log(jsonData);
+
+}
+
 $.getJSON("json/service-countryVisits.php", loadVisits);
 
 function loadVisits(jsonData){
@@ -104,10 +111,6 @@ document.getElementById("sample3").addEventListener("click", function(e){
     node.appendChild(textnode);
     document.getElementById("outputStats").appendChild(node);
 });
-
-function loadAdoptedBooks(jsonData){
-    
-}
 
 
 
