@@ -24,6 +24,17 @@ $.getJSON("json/service-topAdoptedBooks.php", loadAdoptedBooks);
 
 function loadAdoptedBooks(jsonData){
     console.log(jsonData);
+    var myTable ="";
+    for(i=0; i<10;i++){
+        myTable += ('<tr style="min-height:100px">');
+        myTable +=('<td class="mdl-data-table__cell--center analytics-table-background">')
+        myTable +=('<img src="book-images/thumb/' + jsonData[i]['ISBN10'] + '.jpg"/></td>');
+        myTable +=('<td class="mdl-data-table__cell--non-numeric">');
+        myTable +=('<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./single-book.php?i10=' + jsonData[i]['ISBN10'] + '">');
+        myTable +=(jsonData[i]["Title"] + '</a></td>');
+        myTable +=('<td class="mdl-data-table__cell--numeric" style="color:black">' + jsonData[i]['adopted'] + '</td></tr>');
+    }
+    document.getElementById("test").write(myTable);
 
 }
 

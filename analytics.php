@@ -158,21 +158,8 @@ require_once('includes/config.php');
                           <th>Adoption Qty</th>
                         </tr>
                       </thead>
-                      <tbody>
-                    <?php 
-                     $bookList = $analyticsInstance->getTopTenBooks();
-                    foreach ($bookList as $book){
-                        ?>
-                        <tr style="min-height:100px">
-                            <td class="mdl-data-table__cell--center analytics-table-background">
-                                <img src='book-images/thumb/<?php echo $book['ISBN10'] ?>.jpg'/>
-                            </td>
-                            <td class="mdl-data-table__cell--non-numeric">
-                            <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' href="./single-book.php?i10=<?php echo $book['ISBN10']?>">
-                            <?php echo $book['Title']?></a></td>
-                            <td class="mdl-data-table__cell--numeric" style="color:black"><?php echo $book['adopted'];?></td>
-                        </tr>
-                <?php ;} ?>  
+                      <tbody id = "test">
+
                 </tbody>
             </table>
         </div>
