@@ -135,13 +135,11 @@ require_once('includes/config.php');
                                         <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                                     </label>
                                     <label for="sample2" class="mdl-textfield__label">Country</label>
-                                    <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                    <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="sample3">
                                         <li class="mdl-menu__item" data-val="DE">Germany</li>
-                                        <li class="mdl-menu__item" data-val="BY">Belarus</li>
-                                        <li class="mdl-menu__item" data-val="RU">Russia</li>
                                     </ul>
                                 </div>
-                            <div class="typo-styles__demo mdl-typography--title">
+                            <div class="typo-styles__demo mdl-typography--title" id="help">
                                 <p>This is a trial for the text direction</p>
                             </div>
                         </div>

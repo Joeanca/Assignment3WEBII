@@ -71,4 +71,19 @@ function loadCountries(jsonData){
     
             chart.draw(data, options);
           }
+          loadTopList(jsonData);
+}
+
+function loadTopList(jsonData){
+    var countryArray2 = [];
+    for(var i=0;i<jsonData.length;i++){
+        countryArray2.push(jsonData[i]['CountryName']);
+        var node = document.createElement("li");
+        node.setAttribute("class", "mdl-menu__item")
+        var textnode = document.createTextNode(countryArray2);
+        node.appendChild(textnode);
+        document.getElementById("sample3").appendChild(node);
+    }
+    
+    
 }
