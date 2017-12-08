@@ -34,7 +34,7 @@ function loadAdoptedBooks(jsonData){
         myTable +=(jsonData[i]["Title"] + '</a></td>');
         myTable +=('<td class="mdl-data-table__cell--numeric" style="color:black">' + jsonData[i]['adopted'] + '</td></tr>');
     }
-    document.getElementById("test").write(myTable);
+    document.getElementById("adoptedTable").innerHTML = (myTable);
 
 }
 

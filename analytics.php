@@ -158,7 +158,7 @@ require_once('includes/config.php');
                           <th>Adoption Qty</th>
                         </tr>
                       </thead>
-                      <tbody id = "test">
+                      <tbody id = "adoptedTable">
 
                 </tbody>
             </table>
