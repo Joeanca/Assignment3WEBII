@@ -10,11 +10,11 @@ require_once('includes/config.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About us</title>
+    <title>Analytics</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <?php 
-    include "includes/importStatements.inc.php"; 
+    include "includes/importStatements.inc.php";
     $analyticsInstance = new AnalyticsGateway;
     $getVisits = $analyticsInstance->getVisitsCount();
 ?>
@@ -43,7 +43,7 @@ require_once('includes/config.php');
                                     <div class="mdl-cell--8-col mdl-cell--middle">
                                     <div class="mdl-grid mdl-grid--no-spacing">
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
-                                            <h3><span class="count mdl-color-text--grey-50"><?php echo $getVisits[visits]; ?></span></h3>
+                                            <h3 id = "totalVisits"></h3>
                                         </div>
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
                                         </div>
@@ -62,7 +62,7 @@ require_once('includes/config.php');
                                     <div class="mdl-cell--8-col mdl-cell--middle">
                                     <div class="mdl-grid mdl-grid--no-spacing">
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
-                                            <h3><span class="count mdl-color-text--grey-50"><?php echo $getVisits[uniqueCountries]; ?></span></h3>
+                                            <h3 id = "uniqueCountries"></h3>
                                         </div>
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
                                         </div>
@@ -81,7 +81,7 @@ require_once('includes/config.php');
                                     <div class="mdl-cell--8-col mdl-cell--middle">
                                     <div class="mdl-grid mdl-grid--no-spacing">
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
-                                            <h3><span class="count mdl-color-text--grey-50"><?php echo $analyticsInstance->getToDo();?></span></h3>
+                                            <h3 id = toDo></h3>
                                         </div>
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
                                         </div>
@@ -100,7 +100,7 @@ require_once('includes/config.php');
                                     <div class="mdl-cell--8-col mdl-cell--middle">
                                     <div class="mdl-grid mdl-grid--no-spacing">
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
-                                            <h3><span class="count mdl-color-text--grey-50"><?php echo $analyticsInstance->getMssgs();?></span></h3>
+                                            <h3 id = "mssgs"></span></h3>
                                         </div>
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
                                         </div>
@@ -130,17 +130,15 @@ require_once('includes/config.php');
                         <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
                         <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
-                                    <input class="mdl-textfield__input" type="text" id="sample2" value="Belarus" readonly tabIndex="-1">
+                                    <input class="mdl-textfield__input" type="text" id="sample2" value="Top 15 Countries" readonly tabIndex="-1">
                                     <label for="sample2">
                                         <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                                     </label>
                                     <label for="sample2" class="mdl-textfield__label">Country</label>
                                     <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="sample3">
-                                        <li class="mdl-menu__item" data-val="DE">Germany</li>
                                     </ul>
                                 </div>
-                            <div class="typo-styles__demo mdl-typography--title" id="help">
-                                <p>This is a trial for the text direction</p>
+                            <div class="typo-styles__demo mdl-typography--title" id="outputStats">
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,16 @@ $('.count').each(function () {
         }
     });
 });
+
+$.getJSON("json/service-totals.php", loadStats);
+
+function loadStats(jsonData){
+    document.getElementById("toDo").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['toDo'] + "</span>";    
+    document.getElementById("mssgs").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['mssgs'] + "</span>";
+    document.getElementById("uniqueCountries").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['visits'][1] + "</span>";
+    document.getElementById("totalVisits").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['visits'][0] + "</span>";
+}
+
 $.getJSON("json/service-countryVisits.php", loadVisits);
 
 function loadVisits(jsonData){
@@ -74,16 +84,30 @@ function loadCountries(jsonData){
           loadTopList(jsonData);
 }
 
-function loadTopList(jsonData){
+function loadTopList(countryArray){
     var countryArray2 = [];
-    for(var i=0;i<jsonData.length;i++){
-        countryArray2.push(jsonData[i]['CountryName']);
+    for(var i=0;i<countryArray.length;i++){
         var node = document.createElement("li");
         node.setAttribute("class", "mdl-menu__item")
-        var textnode = document.createTextNode(countryArray2);
+        var textnode = document.createTextNode(countryArray[i]['CountryName']);
         node.appendChild(textnode);
         document.getElementById("sample3").appendChild(node);
+        //document.getElementById("sample3").addEventListener("click", displayVisitors);
     }
     
     
 }
+
+document.getElementById("sample3").addEventListener("click", function(e){
+    var node = document.createElement("p");
+    var textnode = document.createTextNode(e.currentTarget.textContent);
+    node.appendChild(textnode);
+    document.getElementById("outputStats").appendChild(node);
+});
+
+function loadAdoptedBooks(jsonData){
+    
+}
+
+
+
