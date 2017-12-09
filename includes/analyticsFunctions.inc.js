@@ -106,21 +106,27 @@ function loadTopList(countryArray){
     var countryArray2 = [];
     for(var i=0;i<countryArray.length;i++){
         var node = document.createElement("li");
-        node.setAttribute("class", "mdl-menu__item")
+        node.setAttribute("class", "mdl-menu__item") 
+        node.setAttribute("data",countryArray[i]['adopted'] )
+        console.log(node);
         var textnode = document.createTextNode(countryArray[i]['CountryName']);
         node.appendChild(textnode);
         document.getElementById("sample3").appendChild(node);
-        //document.getElementById("sample3").addEventListener("click", displayVisitors);
     }
     
     
 }
 
 document.getElementById("sample3").addEventListener("click", function(e){
-    var node = document.createElement("p");
-    var textnode = document.createTextNode(e.currentTarget.textContent);
-    node.appendChild(textnode);
-    document.getElementById("outputStats").appendChild(node);
+    if(e.target && e.target.nodeName == "LI") {
+            console.log(e.target.value + " was clicked");
+            var node = document.createElement("p");
+            var textnode = document.createTextNode("Country: "+ e.target.textContent + " | Visits: " + e.target.getAttribute("data"));
+            node.appendChild(textnode);
+            document.getElementById("outputStats").appendChild(node);
+        }
+
+
 });
 
 
