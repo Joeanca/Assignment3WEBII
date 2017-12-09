@@ -127,20 +127,20 @@ require_once('includes/config.php');
                     <!-- THIS IS THE COUNTRY VISITS SELECT BOX -->
                     <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing drop-down">
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
-                        <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
-                        <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
-                                <div id="dropDown" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
-                                    <input class="mdl-textfield__input" type="text" id="top15Countries" value="Top 15 Countries" readonly tabIndex="-1">
-                                    <label for="top15Countries">
-                                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                                    </label>
-                                    <label for="top15Countries" class="mdl-textfield__label">Country</label>
-                                    <ul for="top15Countries" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="top15CountriesUL">
-                                    </ul>
+                            <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
+                            <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
+                                    <div id="dropDown" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
+                                        <input class="mdl-textfield__input" type="text" id="top15Countries" value="Top 15 Countries" readonly tabIndex="-1">
+                                        <label for="top15Countries">
+                                            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                                        </label>
+                                        <label for="top15Countries" class="mdl-textfield__label">Country</label>
+                                        <ul for="top15Countries" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="top15CountriesUL">
+                                        </ul>
+                                    </div>
+                                <div class="typo-styles__demo mdl-typography--title" id="outputStats">
                                 </div>
-                            <div class="typo-styles__demo mdl-typography--title" id="outputStats">
                             </div>
-                        </div>
                         </div>
                         <div id="countryDetailsMesage" class="mdl-cell mdl-cell--12-col " style="text-align:center"></div>
                         </div>

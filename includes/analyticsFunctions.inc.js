@@ -141,6 +141,8 @@ $(function(){
             node.appendChild(textnode);
             document.getElementById("top15CountriesUL").appendChild(node).addEventListener("click", function(e){
                 $("#countryDetailsMesage").html("Country: " + $(this).text() + "<br>Visitors: " + $(this).attr("value"));
+                $("#top15Countries").attr("value", $(this).text());
+
             });
         }
     }
