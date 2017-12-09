@@ -17,26 +17,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login</title>
+        <title>Register</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/styles.css" />
       
 <?php 
     include "includes/importStatements.inc.php"; 
-    $loginInstance = new LoginGateway();
+    //Create registration object
 ?>
         
     </head>
-    <style type="text/css">
-        .highlight {
-    background-color: #FFE0B2;
-}    
-.error {
-    background: #FFCDD2 url(/images/error.png) no-repeat 98% center !important;
-    box-shadow: 0 0 5px #FF5252;
-    /*border-color: #FF1744;    */
-}
-    </style>
     <body>
             <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawe mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -45,7 +35,7 @@
     </header>
 
 <?php
-    include "includes/loginFunctions.inc.php";
+    //include "includes/loginFunctions.inc.php";
 ?>
         <main class="mdl-layout__content">
             <div class="page-content">
@@ -59,11 +49,11 @@
                     <div class="mdl-cell mdl-cell--4-col">
                     
                 <div class="demo-card-wide mdl-card mdl-shadow--8dp card-me">
-                        <h4 align="center">Login</h4>
+                        <h4 align="center">Register</h4>
                 <div align="center">
                     
                     <!-- main form for the login - if proper credentials it will log user into their own account -->
-                    <form id="mainForm" action ="/login.php" method="post">
+                    <form id="mainForm" action ="/register.php" method="post">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="username">
                             <label class="mdl-textfield__label " for="username">Username</label>
@@ -74,15 +64,9 @@
                             <label class="mdl-textfield__label" for="password">Password</label>
                         </div>
                         
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Login</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Create Account</button>
                         
                     </form>
-                
-                
-                <!-- button that takes user to the registration page -->
-                    <div id="register">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="javascript:window.location.assign('/registration.php')">Register</button>
-                    </div>
                 </div>
                 
                 </div>
