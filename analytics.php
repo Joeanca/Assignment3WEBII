@@ -5,18 +5,14 @@ if(empty($_SESSION['UserID'])){
     header("Location:/login.php");
 }
 require_once('includes/config.php'); 
-//include_once('includes/analytics.inc.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Analytics</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 <?php 
     include "includes/importStatements.inc.php";
-    $analyticsInstance = new AnalyticsGateway;
-    $getVisits = $analyticsInstance->getVisitsCount();
 ?>
 </head>
 <style>
@@ -43,7 +39,7 @@ require_once('includes/config.php');
                                     <div class="mdl-cell--8-col mdl-cell--middle">
                                     <div class="mdl-grid mdl-grid--no-spacing">
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
-                                            <h3 id = "totalVisits"></h3>
+                                            <h3 id ="totalVisits"></h3>
                                         </div>
                                         <div class="mdl-cell--middle mdl-cell--12-col mdl-cell--middle mdl-color-text--grey-50" style="text-align:right;">
                                         </div>
