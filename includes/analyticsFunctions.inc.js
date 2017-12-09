@@ -140,7 +140,7 @@ $(function(){
             var textnode = document.createTextNode(jsonData[i]['CountryName']);
             node.appendChild(textnode);
             document.getElementById("top15CountriesUL").appendChild(node).addEventListener("click", function(e){
-                $("#countryDetailsMesage").text("Country: " + $(this).text() + "\n\rVisitors: " + $(this).attr("value"));
+                $("#countryDetailsMesage").html("Country: " + $(this).text() + "<br>Visitors: " + $(this).attr("value"));
             });
         }
     }
