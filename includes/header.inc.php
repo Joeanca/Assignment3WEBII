@@ -8,31 +8,18 @@
   ?>
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row" style="height:auto;">
-     <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
- 
-
-     
-      <div class="mdl-layout-spacer"></div>
-      
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-                  
-<label id="tt2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="5">account_box</label>  
-<div class="mdl-tooltip" for="tt2">Messages</div>                     
-                 
-<label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label> 
- <div class="mdl-tooltip" for="tt3">Notifications</div>
- <label id="tt4" class="material-icons mdl-badge mdl-badge--overlap"><a href="./login.php" style="text-decoration:none; color:white">close</a></label> 
- <div class="mdl-tooltip" for="tt4" style="float:right">Logout</div>
-                  
-           
-        <label class="mdl-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons" id="searchButton">search</i>
-        </label>
-
+        <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+            <label id="tt2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="5">account_box</label>  
+            <div class="mdl-tooltip" for="tt2">Messages</div>                     
+            <label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label> 
+            <div class="mdl-tooltip" for="tt3">Notifications</div>
+            <label id="tt4" class="material-icons mdl-badge mdl-badge--overlap"><a href="./login.php" style="text-decoration:none; color:white">close</a></label> 
+            <div class="mdl-tooltip" for="tt4" style="float:right">Logout</div>
+            <label class="material-icons mdl-badge mdl-badge--overlap" id="searchButton"><span style="text-decoration:none; color:white">search</span></label> 
+            <div class="mdl-tooltip" for="searchButton" style="float:right">Search</div>
         </div>
-        
     </div>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
