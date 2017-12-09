@@ -49,7 +49,7 @@
                     <div class="mdl-cell mdl-cell--4-col">
                     
                 <div class="demo-card-wide mdl-card mdl-shadow--8dp card-me">
-                        <h4 align="center">Register</h4>
+                        <h4 align="center">Update User Profile</h4>
                 <div align="center">
                     
                     <!-- main form for the login - if proper credentials it will log user into their own account -->
@@ -172,7 +172,6 @@ function start(){
         if (ready){
         $(this).unbind('submit').submit();}
     })
-
 }
 </script>
 
