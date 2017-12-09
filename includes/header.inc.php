@@ -7,7 +7,7 @@
     
   ?>
   <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
+    <div class="mdl-layout__header-row" style="height:auto;">
      <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
  
 
@@ -23,35 +23,31 @@
 <label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label> 
  <div class="mdl-tooltip" for="tt3">Notifications</div>
  <label id="tt4" class="material-icons mdl-badge mdl-badge--overlap"><a href="./login.php" style="text-decoration:none; color:white">close</a></label> 
- <div class="mdl-tooltip" for="tt4">Logout</div>
+ <div class="mdl-tooltip" for="tt4" style="float:right">Logout</div>
                   
            
         <label class="mdl-button mdl-button--icon"
                for="fixed-header-drawer-exp">
           <i class="material-icons" id="searchButton">search</i>
         </label>
-        <div class=""  ></div>
-      
-        <div>
+
         </div>
-            
-        </div>
+        
     </div>
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      </header>
-       <div id="hiddenTextFieldSearch" class="dontDisplay ">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        </header>
+        <div id="hiddenTextFieldSearch" class="dontDisplay">
            <div class="mdl-card__title mdl-color--blue-grey floatingBox">
                 <input class="mdl-textfield__input" type="text" name="sample"
                  id="fixed-header-drawer-exp" style="background-color:white; margin:10px;">
                  <div style="margin:10px"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="searchSubmit">
                 Search
             </button></div>
-                
             </div>
-            
         </div>
+       
   <script>
     function post(path, params, method) {
     method = method || "post"; 

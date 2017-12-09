@@ -75,10 +75,18 @@
 .dontDisplay{
     display: none;
 }
+#hiddenTextFieldSearch{
+    float:right;
+    clear: right;
+    position: absolute;
+    right: 0%;
+    top: 69px;
+    
+}
 .floatingBox{
     z-index: 999;
     position: relative;
-    width: 700px;
+    width: 400px;
     height: 50px;
     background-color: white;
     padding: 10px;
