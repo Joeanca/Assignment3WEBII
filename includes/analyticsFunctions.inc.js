@@ -10,6 +10,34 @@ $('.count').each(function () {
         }
     });
 });
+
+$.getJSON("json/service-totals.php", loadStats);
+
+function loadStats(jsonData){
+    document.getElementById("toDo").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['toDo'] + "</span>";    
+    document.getElementById("mssgs").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['mssgs'] + "</span>";
+    document.getElementById("uniqueCountries").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['visits'][1] + "</span>";
+    document.getElementById("totalVisits").innerHTML = "<span class = count mdl-color-text--grey-50>" + jsonData['visits'][0] + "</span>";
+}
+
+$.getJSON("json/service-topAdoptedBooks.php", loadAdoptedBooks);
+
+function loadAdoptedBooks(jsonData){
+    console.log(jsonData);
+    var myTable ="";
+    for(i=0; i<10;i++){
+        myTable += ('<tr style="min-height:100px">');
+        myTable +=('<td class="mdl-data-table__cell--center analytics-table-background">')
+        myTable +=('<img src="book-images/thumb/' + jsonData[i]['ISBN10'] + '.jpg"/></td>');
+        myTable +=('<td class="mdl-data-table__cell--non-numeric">');
+        myTable +=('<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./single-book.php?i10=' + jsonData[i]['ISBN10'] + '">');
+        myTable +=(jsonData[i]["Title"] + '</a></td>');
+        myTable +=('<td class="mdl-data-table__cell--numeric" style="color:black">' + jsonData[i]['adopted'] + '</td></tr>');
+    }
+    document.getElementById("adoptedTable").innerHTML = (myTable);
+
+}
+
 $.getJSON("json/service-countryVisits.php", loadVisits);
 
 function loadVisits(jsonData){
@@ -71,4 +99,29 @@ function loadCountries(jsonData){
     
             chart.draw(data, options);
           }
+          loadTopList(jsonData);
 }
+
+function loadTopList(countryArray){
+    var countryArray2 = [];
+    for(var i=0;i<countryArray.length;i++){
+        var node = document.createElement("li");
+        node.setAttribute("class", "mdl-menu__item")
+        var textnode = document.createTextNode(countryArray[i]['CountryName']);
+        node.appendChild(textnode);
+        document.getElementById("sample3").appendChild(node);
+        //document.getElementById("sample3").addEventListener("click", displayVisitors);
+    }
+    
+    
+}
+
+document.getElementById("sample3").addEventListener("click", function(e){
+    var node = document.createElement("p");
+    var textnode = document.createTextNode(e.currentTarget.textContent);
+    node.appendChild(textnode);
+    document.getElementById("outputStats").appendChild(node);
+});
+
+
+

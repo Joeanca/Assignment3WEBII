@@ -62,6 +62,7 @@
                         <h4 align="center">Login</h4>
                 <div align="center">
                     
+                    <!-- main form for the login - if proper credentials it will log user into their own account -->
                     <form id="mainForm" action ="/login.php" method="post">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="username">
@@ -76,6 +77,12 @@
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Login</button>
                         
                     </form>
+                
+                
+                <!-- button that takes user to the registration page -->
+                    <div id="register">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="javascript:window.location.assign('/registration.php')">Register</button>
+                    </div>
                 </div>
                 
                 </div>
