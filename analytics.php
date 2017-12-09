@@ -28,7 +28,7 @@ require_once('includes/config.php');
     <div class='mdl-cell mdl-cell--middle mdl-cell--12-col mdl-card__title mdl-color--orange'><h3 class="mdl-card__title-text">Analytics</h3></div>
         <section class="page-content">
             <div class="mdl-grid containerBackground">
-              <!-- mdl-cell + mdl-card -->
+              <!-- THIS FOUR DIVS ARE THE TOP 4 INFORMATION BANNER mdl-cell + mdl-card -->
                     <div class="mdl-grid mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-color--purple-300" >
                         <div class="mdl-cell--12-col mdl-cell--top mdl-color-text--grey-50" style="height:auto;">Total visits</div>
                             <div class="mdl-cell--12-col">
@@ -104,14 +104,18 @@ require_once('includes/config.php');
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>                 
+                    <!-- END OF FOUR DIVS BANNER -->
+                    <!-- TOP 15 COUNTRIES MAP -->
                     <div class="mdl-cell mdl-cell--6-col card-lesson mdl-card  mdl-shadow--2dp" >
                         <div  class="mdl-cell mdl-cell--12-col mdl-cell--middle mdl-grid book-container demo-card-square " style="text-align:center;min-height: 100% !important" >
                             <div class='mdl-cell mdl-cell--12-col mdl-cell--top mdl-card__title-text'>Top 15 Visiting Countries</div>
                             <div class='mdl-cell mdl-cell--12-col mdl-cell--stretch' style="height: 100% !important"><div id="regions_div" style="width: 100%; height: auto;"></div></div>
                             
                         </div>
-                     </div>
+                    </div>
+                    <!-- END OF TOP 15 COUNTRIES BAR -->
+                    <!-- THIS IS THE VISITS PER MONTH AREA CHART -->
                     <div id="right-container-analytics"  class="mdl-cell mdl-cell--6-col mdl-grid " style="text-align:center">
                              <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square " style="text-align:center">
@@ -119,31 +123,33 @@ require_once('includes/config.php');
                             <div class='mdl-cell mdl-cell--12-col '><div id="chart_div" style="width: 100%; height: auto;"></div></div>
                             
                         </div>
-                     </div>
-                        <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing ">
-
-                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
+                    </div>
+                    <!-- THIS IS THE COUNTRY VISITS SELECT BOX -->
+                    <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing drop-down">
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
                         <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
                         <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
-                                    <input class="mdl-textfield__input" type="text" id="sample2" value="Top 15 Countries" readonly tabIndex="-1">
-                                    <label for="sample2">
+                                <div id="dropDown" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth">
+                                    <input class="mdl-textfield__input" type="text" id="top15Countries" value="Top 15 Countries" readonly tabIndex="-1">
+                                    <label for="top15Countries">
                                         <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                                     </label>
-                                    <label for="sample2" class="mdl-textfield__label">Country</label>
-                                    <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="sample3">
+                                    <label for="top15Countries" class="mdl-textfield__label">Country</label>
+                                    <ul for="top15Countries" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" id="top15CountriesUL">
                                     </ul>
                                 </div>
                             <div class="typo-styles__demo mdl-typography--title" id="outputStats">
                             </div>
                         </div>
-                    </div>
                         </div>
-                        
+                        <div id="countryDetailsMesage" class="mdl-cell mdl-cell--12-col " style="text-align:center"></div>
+                        </div>
                     </div>
+                    <!-- END SELECT COUNTRY VISITS -->
+                    
                  
-                  
-             <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square">
+            <!-- TOP 10 BOOK TABLE -->
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square">
               <div class=' mdl-color--teal-300 mdl-color-text--grey-50' style="text-align:center; min-height: 50px; font-size: 1.5em;">
                 <div style="padding: 20px;">Top 10 Adopted Books</div>
                     <table class="mdl-data-table mdl-js-data-table dl-shadow--2dp" style="width: -webkit-fill-available;">
@@ -155,16 +161,16 @@ require_once('includes/config.php');
                         </tr>
                       </thead>
                       <tbody id = "adoptedTable">
-
-                </tbody>
-            </table>
-        </div>
+                      </tbody>
+                    </table>
+                </div>
+            <!-- END TOP 10 BOOK TABLE -->
         </div>
     </div>
 </section>
 </main>
 </div>
-<?php //echo counter(); ?>
+<!-- INCLUDING THE ANALYTICS FUNCTIONS -->
 <script type="text/javascript" src="/includes/analyticsFunctions.inc.js"></script>
 </body>
 </html>

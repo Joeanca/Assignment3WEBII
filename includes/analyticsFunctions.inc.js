@@ -1,4 +1,7 @@
 $(function(){
+    // MAKE SURE THAT THE MDL LIST CLOSES, OTHERWISE IT DOESN'T
+    $("#dropDown").on("click", function(){$(".mdl-menu__container").removeClass('is-visible'); });
+    
     // LOADS THE INFORMATION WHICH WILL POPULATE THE TOP 4 DIVS WITH THE STATS WHICH DISPLAY THE TOTAL VISITS, VISITING COUNTRIES, TODOS AND EMPLOYEE MESSAGES SENT
     $.getJSON("json/service-totals.php",  function(){
         console.log("success");
@@ -92,7 +95,6 @@ $(function(){
         }
     }
     
-    
     // LOADS THE COUNTRY VISITS AND LOADS THE ARRAY WHICH DISPLAYS THE TOP 15 COUNTRIES 
     $.getJSON("json/service-topCountries.php", function(){
         console.log("success");
@@ -108,7 +110,7 @@ $(function(){
                 for(var i=0;i<jsonData.length ;i++ ){
                     countryArray.push([jsonData[i]['CountryName'], parseInt(jsonData[i]['adopted'])]);
                 }
-                // console.log(countryArray);
+                console.log(jsonData);
                   google.charts.load('current', {
                 'packages':['geochart'],
                 // Note: you will need to get a mapsApiKey for your project.
@@ -126,25 +128,21 @@ $(function(){
         
                 chart.draw(data, options);
               }
-              loadTopList(jsonData);
+              loadCountryDetails(jsonData);
     }
     
-    function loadTopList(countryArray){
-        var countryArray2 = [];
-        for(var i=0;i<countryArray.length;i++){
+    //
+    function loadCountryDetails(jsonData){
+        for(var i=0;i<jsonData.length;i++){
             var node = document.createElement("li");
             node.setAttribute("class", "mdl-menu__item")
-            var textnode = document.createTextNode(countryArray[i]['CountryName']);
+            node.setAttribute("value",jsonData[i]['adopted'] )
+            var textnode = document.createTextNode(jsonData[i]['CountryName']);
             node.appendChild(textnode);
-            document.getElementById("sample3").appendChild(node);
-            //document.getElementById("sample3").addEventListener("click", displayVisitors);
+            document.getElementById("top15CountriesUL").appendChild(node).addEventListener("click", function(e){
+                $("#countryDetailsMesage").text("Country: " + $(this).text() + "\n\rVisitors: " + $(this).attr("value"));
+            });
         }
     }
-    document.getElementById("sample3").addEventListener("click", function(e){
-        var node = document.createElement("p");
-        var textnode = document.createTextNode(e.currentTarget.textContent);
-        node.appendChild(textnode);
-        document.getElementById("outputStats").appendChild(node);
-    });
 });
 
