@@ -26,15 +26,12 @@
  <div class="mdl-tooltip" for="tt4">Logout</div>
                   
            
-        <label class="mdl-button mdl-js-button mdl-button--icon"
+        <label class="mdl-button mdl-button--icon"
                for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
+          <i class="material-icons" id="searchButton">search</i>
         </label>
-        <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" name="sample"
-                 id="fixed-header-drawer-exp">
-                
-        </div>
+        <div class=""  ></div>
+      
         <div>
         </div>
             
@@ -44,6 +41,17 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       </header>
+       <div id="hiddenTextFieldSearch" class="dontDisplay ">
+           <div class="mdl-card__title mdl-color--blue-grey floatingBox">
+                <input class="mdl-textfield__input" type="text" name="sample"
+                 id="fixed-header-drawer-exp" style="background-color:white; margin:10px;">
+                 <div style="margin:10px"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="searchSubmit">
+                Search
+            </button></div>
+                
+            </div>
+            
+        </div>
   <script>
     function post(path, params, method) {
     method = method || "post"; 
@@ -69,7 +77,19 @@
   var ID;
   var LABEL;
   $(function () {
+        $("#searchSubmit").on("click", function(){
+            $(".is-upgraded").removeClass("is-focused");
+            if (ID != null){
+                location.href = '/browse-employees.php?id=' + ID;
+            }else{
+                var params =  {search:  $("#fixed-header-drawer-exp").val()};
+                post('browse-employees.php', params, 'post');
+            }
+        });
         var dataSrc = <?php echo json_encode($employeeArray); ?>;
+        $("#searchButton").on("click", function(){
+            $("#hiddenTextFieldSearch").toggleClass("dontDisplay");
+        });
         $("#fixed-header-drawer-exp").autocomplete({
         source:function( request, response ) {
                var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
@@ -94,7 +114,7 @@
         });
     });
     
-    document.getElementById("fixed-header-drawer-exp").addEventListener("keyup", function(event) {
+    $("#fixed-header-drawer-exp").on("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode === 13) {
             $(".is-upgraded").removeClass("is-focused");

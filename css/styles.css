@@ -72,6 +72,20 @@
 .hideMe{
     visibility: hidden;
 }
+.dontDisplay{
+    display: none;
+}
+.floatingBox{
+    z-index: 999;
+    position: relative;
+    width: 700px;
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid gray ;
+    border-radius: 5px;
+    float:right;
+}
 .imprints{
     height: 413px !important;
 }

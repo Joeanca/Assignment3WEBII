@@ -6,10 +6,8 @@
 //include "../includes/importStatements.inc.php"; 
 include "../classes/AbstractTableGateway.class.php";
 include "../classes/AnalyticsGateway.class.php";
-
-$analitycsInstance = new AnalyticsGateway();
-$data = $analitycsInstance->getTop15Countries();
-header('Content-Type: application/json');
-echo json_encode($data, JSON_PRETTY_PRINT) ;
-
+    $analitycsInstance = new AnalyticsGateway();
+    $data = $analitycsInstance->getTop15Countries();
+    header('Content-Type: application/json');
+    echo json_encode($data, JSON_PRETTY_PRINT) ;
 ?>

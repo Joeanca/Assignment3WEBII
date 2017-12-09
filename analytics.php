@@ -10,7 +10,7 @@ require_once('includes/config.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About us</title>
+    <title>Analytics</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <?php 
