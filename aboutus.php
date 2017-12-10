@@ -1,5 +1,6 @@
 <!--There must be a page named aboutus.php. It should have your name, the course name and number, date, and anything else you’d like to put here. Somewhere on this page, provide a list of all resources you are using that you did not create (e.g. MDL, images, etc). Try to make it look nice and make it fit with MDL (or MDC) styles. -->
 <?php
+// CHECKS FOR THE SESSION STATE AND SETS THE HEADER TO REDIRECT IF NOT LOGGED IN 
 session_start();
  
 if(empty($_SESSION['UserID'])){
@@ -67,6 +68,7 @@ include_once('includes/bookFunctions.inc.php');
                                 <li class='mdl-list__item'>MDL framework by google.</li>
                                 <li class='mdl-list__item'>Material blue grey orange theme unknown source.</li>
                                 <li class='mdl-list__item'>JQuery library found at: <a href="https://jquery.com/"> &nbsphttps://jquery.com/</a></li>
+                                <li class='mdl-list__item'>JQuery UI autocomplete <a href="https://jqueryui.com/autocomplete/"> &nbsphttps://jquery.com/</a></li>
                                 <li class='mdl-list__item'>Icons by Google.</li>
                                 <li class='mdl-list__item'>Stack Overflow for ideas and snippets.</li>
                                 <li class='mdl-list__item'>Google Maps API's.</li>

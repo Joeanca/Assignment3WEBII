@@ -125,7 +125,7 @@ require_once('includes/config.php');
                         </div>
                     </div>
                     <!-- THIS IS THE COUNTRY VISITS SELECT BOX -->
-                    <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp  mdl-grid--no-spacing drop-down">
+                    <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp drop-down">
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--top book-container demo-card-square" style="text-align:center">
                             <div class='mdl-cell mdl-cell--12-col mdl-card__title-text'>Country Details</div>
                             <div id="top10books" style="width: 100%; height: auto; text-align:-webkit-center">

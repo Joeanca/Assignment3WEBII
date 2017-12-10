@@ -47,9 +47,6 @@ include_once('includes/employeeFunctions.inc.php');
                 <div class="mdl-card__title mdl-color--orange">
                   <h2 class="mdl-card__title-text">Employees</h2>
                 </div>
-                
-                
-                
                     <div class="mdl-card__title mdl-color--blue-grey">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="showSearch()">
                             Show Employee Filters
@@ -87,12 +84,9 @@ include_once('includes/employeeFunctions.inc.php');
                     <div class="mdl-card__actions mdl-card--border">
                     </div>
                     </form>
-
-                
-                
-                
                 <div class="mdl-card__supporting-text">
                     <ul class="demo-list-item mdl-list">
+                        <!-- PARSES THROUGH THE POST AND GETS THE EMPLOYEE LIST DEPENDING ON THE POST PARAMETERS PASSED TO THE PAGE -->
                          <?php 
                             if (isset($_POST['search'])){
                                 $employees = $empDB->getByLastName($_POST['search']);
