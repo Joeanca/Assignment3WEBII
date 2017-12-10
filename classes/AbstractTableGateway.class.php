@@ -93,5 +93,12 @@ include('AdapterFactory.class.php');
             $adapter = null;
         }
         
+        public function setValues($insertStatement){
+            $adapter = $this->createAdapter();
+            $sql = $insertStatement;
+            $statement=$adapter->prepare($sql);
+            $statement->execute();
+            $adapter = null;
+        }
    }
 ?>
