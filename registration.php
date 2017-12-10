@@ -34,9 +34,6 @@
             <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
     </header>
 
-<?php
-    //include "includes/loginFunctions.inc.php";
-?>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class="mdl-grid">
@@ -53,70 +50,65 @@
                 <div align="center">
                     
                     <!-- main form for the login - if proper credentials it will log user into their own account -->
-                    <form id="mainForm" action ="/register.php" method="post">
+                    <form id="mainForm" action ="/registration.php" method="post">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="firstName">
+                            <input class="mdl-textfield__input hilightable" type="text" name="firstName">
                             <label class="mdl-textfield__label " for="firstName">First Name</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="lastName">
-                            <label class="mdl-textfield__label " for="lastName">Last Name</label>
+                            <label class="mdl-textfield__label " for="lastName">Last Name*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="address">
+                            <input class="mdl-textfield__input hilightable" type="text" name="address">
                             <label class="mdl-textfield__label " for="address">Address</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="city">
-                            <label class="mdl-textfield__label " for="city">City</label>
+                            <label class="mdl-textfield__label " for="city">City*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="region">
+                            <input class="mdl-textfield__input hilightable" type="text" name="region">
                             <label class="mdl-textfield__label " for="region">Region</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="country">
-                            <label class="mdl-textfield__label " for="country">Country</label>
+                            <label class="mdl-textfield__label " for="country">Country*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="postal">
+                            <input class="mdl-textfield__input hilightable" type="text" name="postal">
                             <label class="mdl-textfield__label " for="postal">Postal Code</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="city">
-                            <label class="mdl-textfield__label " for="city">City</label>
-                        </div>
-                        
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="phone">
+                            <input class="mdl-textfield__input hilightable" type="text" name="phone">
                             <label class="mdl-textfield__label " for="phone">Phone Number</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="city">
-                            <label class="mdl-textfield__label " for="city">City</label>
+                            <input class="mdl-textfield__input required hilightable" id="email" type="text" name="email">
+                            <label class="mdl-textfield__label " for="email">Email*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="email">
-                            <label class="mdl-textfield__label " for="email">Email</label>
+                            <input class="mdl-textfield__input required hilightable" id="pass1" type="password" name="password">
+                            <label class="mdl-textfield__label" for="password">Password*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="password" name="password">
-                            <label class="mdl-textfield__label" for="password">Password</label>
+                            <input class="mdl-textfield__input required hilightable" id="pass2" type="password" name="password">
+                            <label class="mdl-textfield__label" for="password">Confirm Password*</label>
                         </div>
                         
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Create Account</button>
-                        
                     </form>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="javascript:window.location.assign('/login.php')">Back to Login</button>
                 </div>
                 
                 </div>
@@ -136,11 +128,12 @@
         </main>
 
         </div>
+
 <script>
     window.addEventListener('load', start);
 function start(){
     var highlights = document.getElementsByClassName("hilightable");
-    for (i=0; i<highlights.length; i++) {
+    for (var i=0; i<highlights.length; i++) {
         highlights[i].addEventListener("focus", function(){
             this.classList.toggle("hilightable");
         });
@@ -156,25 +149,66 @@ function start(){
     document.getElementById('mainForm').addEventListener("submit", function(e){
         e.preventDefault();
         var required = document.getElementsByClassName("required");
-        var ready = false;
-        for (i=0; i<required.length; i++) {
+        var ready = true;
+        for (var i=0; i<required.length; i++) {
             if (required[i].value == ""){
                required[i].classList.add("error");
+               ready = false;
                required[i].addEventListener("input", function(){
                   this.classList.remove("error") ;
                });
+            } 
+        }
+        
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+        var match = false;
+        if(pass1 === pass2){
+            match = true;
+        }
+        else {match = false};
+        
+        if (match == false){
+               document.getElementById("pass1").classList.add("error");
+               document.getElementById("pass2").classList.add("error");
                ready = false;
-               break;
-            } else {
-                ready = true;
-            }
-        }    
+               required[i].addEventListener("input", function(){
+                  document.getElementById("pass1").classList.remove("error");
+                  document.getElementById("pass2").classList.remove("error");
+               });
+        } 
+        
+    document.getElementById("email").addEventListener("change", function(){
+        var email = document.getElementById("email").value;
+        var emailVal = false;
+        var at = email.includes("@");
+        var dot = email.includes(".");
+        if(at == true && dot == true){
+            emailVal = true;
+        }
+        else{
+            emailVal = false;
+        }
+        if(emailVal == false){
+            document.getElementById("email").ClassList.add("error");
+            ready = false;
+        }
+        else{
+                this.classList.remove("error");
+        }
+    });
+        
         if (ready){
         $(this).unbind('submit').submit();}
+<<<<<<< HEAD
     })
+=======
+    });
+
+
+>>>>>>> master
 }
 </script>
-
 </body>
     
 </html>
