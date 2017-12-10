@@ -1,10 +1,5 @@
 <?php
  session_start();
-    // if( strcasecmp($_SERVER['REQUEST_METHOD'],"POST") === 0) {
-    //      $_SESSION['postdata'] = $_POST;
-    //     header("Location: ".$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING']);
-    // exit;
-    // }
     if(isset($_SESSION['UserID'])){
         session_destroy();
     }if
@@ -161,12 +156,8 @@ function start(){
                });
                ready = false;
             } 
-        }    
-        if (ready){
-        $(this).unbind('submit').submit();}
-
-    
-    var pass1 = document.getElementById("pass1").value;
+        }
+            var pass1 = document.getElementById("pass1").value;
          var pass2 = document.getElementById("pass2").value;
          var match = false;
         if(pass1 === pass2){
@@ -183,7 +174,12 @@ function start(){
                    document.getElementById("pass2").classList.remove("error");
                 });
          } 
-    });    
+        
+        if (ready){
+        $(this).unbind('submit').submit();}
+        document.alert("Thanks for registering, please log in!");
+    });  
+    
      document.getElementById("email").addEventListener("change", function(){
          var email = document.getElementById("email").value;
          var emailVal = false;
