@@ -1,83 +1,8 @@
 <?php
 
 $registerInstance = new RegisterGateway();
-
-//used to check if a POST value has been set
-function checkIsset($val){
-    if(isset($val)){
-        $isset = true;
-    }
-    else {$isset = false;}
     
-    return $isset;
-}
-    //sets first name in DB 
-    $first = checkIsset($_POST['firstName']);
-    if($first == true){
-        $registerInstance->setFirst($_POST['firstName']);
-    }
-    else {$firstName = null;}
-    
-    //sets last name in DB 
-    $last = checkIsset($_POST['lastName']);
-    if($last == true){
-        $registerInstance->setLast($_POST['lastName']);
-    }
-    
-    //sets address in DB
-    $address = checkIsset($_POST['address']);
-    if($address == true){
-        $registerInstance->setAddress($_POST['address']);
-    }
-    
-    //sets city in DB
-    $city = checkIsset($_POST['city']);
-    if($city == true){
-        $registerInstance->setCity($_POST['city']);
-    }
-    
-    //sets region in DB
-    $region = checkIsset($_POST['region']);
-    if($region == true){
-        $registerInstance->setRegion($_POST['region']);
-    }
-    
-    //sets country in DB
-    $country = checkIsset($_POST['country']);
-    if($country == true){
-        $registerInstance->setCountry($_POST['country']);
-    }
-    
-    //sets postal code in DB
-    $postal = checkIsset($_POST['postal']);
-    if($postal == true){
-        $registerInstance->setPostal($_POST['postal']);
-    }
-    
-    //sets phone number in DB
-    $phone = checkIsset($_POST['phone']);
-    if($phone == true){
-        $registerInstance->setPhone($_POST['phone']);
-    }
-    
-    //sets email in DB
-    $email = checkIsset($_POST['email']);
-    if($email == true){
-        $registerInstance->setEmail($_POST['email']);
-    }
-    
-    //gets salt value and sets it in DB
-    $salt = MD5(microtime());
-    $registerInstance->setSalt($salt);
-    
-    //combines password with salt value and sets it in DB
-    $passwordVal = checkIsset($_POST['password']);
-    if($passwordVal == true){
-        $password = $_POST['password'] . $salt;
-        $registerInstance->setPassword(password);
-    }
-    
-    //checks if username exists
+    //checks if username exists and stops form submit if it does
     $users = $registerInstance->getUserNames();
     for($i = 0; $i <= count($users) ; $i++){
         if($users[$i] == $_POST['email'])
@@ -91,19 +16,28 @@ function checkIsset($val){
         }
         else{$taken = false;}
     }
-    
-    //sets user name in DB if it is unique
-    $username = checkIsset($_POST['email']);
-    if($taken == false && $username == true){
-        $registerInstance->setUsername($_POST['email']);
-    }
-    
-    //sets current date
+
+
+    //sets necessary variables 
+    $userID= count($users) + 1;
+    $email= $_POST['email'];
+    $salt = MD5(microtime());
+    $password = $_POST['password'] . $salt;
     $currentdate = date("YYYY-mm-dd HH:ii:ss");
-    $registerInstance->setUserDates($currentdate);
-
-
-    //foreach($_POST as $key => $value)
-
+    $state= 1;
+    $firstName= $_POST['firstName'];
+    $lastName= $_POST['lastName'];
+    $address= $_POST['address'];
+    $city= $_POST['city'];
+    $region= $_POST['region'];
+    $country= $_POST['country'];
+    $postal= $_POST['postal'];
+    $phone= $_POST['phone'];
+    $email= $_POST['email'];
+    $privacy= 1;
+    
+    $registerInstance->usersLoginInsert($userName, $pass, $salt, $state, $currentDate);
+    
+    $registerInstance->usersInsert($userID, $firstName, $lastName, $address, $city, $region, $country, $postal, $phone, $email, $privacy);
 
 ?>
