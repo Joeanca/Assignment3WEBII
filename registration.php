@@ -178,6 +178,7 @@ function start(){
         if (ready){
         $(this).unbind('submit').submit();}
         document.alert("Thanks for registering, please log in!");
+        window.location.replace("login.php");
     });  
     
      document.getElementById("email").addEventListener("change", function(){
