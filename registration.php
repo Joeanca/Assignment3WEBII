@@ -172,13 +172,13 @@ function start(){
         if(pass1 === pass2){
              match = true;
          }
-         else {match = false};
+         else {match = false;}
          
          if (match == false){
                 document.getElementById("pass1").classList.add("error");
                 document.getElementById("pass2").classList.add("error");
                  ready = false;
-                  required[i].addEventListener("input", function(){
+                   document.getElementById('pass1').addEventListener("input", function(){
                    document.getElementById("pass1").classList.remove("error");
                    document.getElementById("pass2").classList.remove("error");
                 });
