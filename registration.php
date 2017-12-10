@@ -1,10 +1,5 @@
 <?php
  session_start();
-    // if( strcasecmp($_SERVER['REQUEST_METHOD'],"POST") === 0) {
-    //      $_SESSION['postdata'] = $_POST;
-    //     header("Location: ".$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING']);
-    // exit;
-    // }
     if(isset($_SESSION['UserID'])){
         session_destroy();
     }if
@@ -23,7 +18,7 @@
       
 <?php 
     include "includes/importStatements.inc.php"; 
-    //Create registration object
+    $registerInstance = new RegisterGateway();
 ?>
         
     </head>
@@ -32,6 +27,7 @@
     <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
             <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
+            
     </header>
 
         <main class="mdl-layout__content">
@@ -102,7 +98,7 @@
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" id="pass2" type="password" name="password">
+                            <input class="mdl-textfield__input required hilightable" id="pass2" type="password" name="password2">
                             <label class="mdl-textfield__label" for="password">Confirm Password*</label>
                         </div>
                         
@@ -126,7 +122,7 @@
         </div>
             
         </main>
-
+         <?php include "includes/registerFunctions.inc.php"; ?>
         </div>
 
 <script>
@@ -199,12 +195,15 @@ function start(){
     });
         
         if (ready){
-        $(this).unbind('submit').submit();}
+        $(this).unbind('submit').submit();
+        window.location.href = "login.php"    
+        }
     });
 
 
 }
 </script>
+
 </body>
     
 </html>
