@@ -1,5 +1,7 @@
 <?php
 
+$registerInstance = new RegisterGateway();
+
 //used to check if a POST value has been set
 function checkIsset($val){
     if(isset($val)){
@@ -14,6 +16,7 @@ function checkIsset($val){
     if($first == true){
         $registerInstance->setFirst($_POST['firstName']);
     }
+    else {$firstName = null;}
     
     //sets last name in DB 
     $last = checkIsset($_POST['lastName']);
@@ -95,9 +98,12 @@ function checkIsset($val){
         $registerInstance->setUsername($_POST['email']);
     }
     
+    //sets current date
     $currentdate = date("YYYY-mm-dd HH:ii:ss");
     $registerInstance->setUserDates($currentdate);
 
+
+    //foreach($_POST as $key => $value)
 
 
 ?>

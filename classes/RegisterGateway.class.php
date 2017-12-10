@@ -16,7 +16,7 @@ class RegisterGateway extends AbstractTableGateway {
     } 
     
     public function getUserNames(){
-        return $this->getAll("SELECT UserName FROM UsersLogin");
+        return $this->getSpecific("SELECT UserName FROM UsersLogin");
     }  
     
     public function setUsername($email){
