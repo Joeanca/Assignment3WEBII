@@ -1,4 +1,11 @@
-<!-- User profile. Information -->
+<!-- User profile. Information 
+Display the information frm the Users table (f.Name, l.Name, Address, City, region, Country, Postal, Phone, Email) in a sensible, attractive way.
+
+Allow the user to edit this information. Be sure to add JavaScript validation for the following fields: l.Name, City, Country, Email (valid pattern x@x.xx). Be sure to make use of a field highlighting system similar to that used in JavaScript lab homework)
+
+
+
+-->
 <?php
 session_start();
 if(empty($_SESSION['UserID'])){
@@ -15,7 +22,7 @@ include_once('includes/bookFunctions.inc.php');
 <html lang="en">
 
 <head>
-    <title>About us</title>
+    <title>Profile</title>
     <?php include "includes/importStatements.inc.php"; 
           $userInstance = new UserProfileGateway();?>
 </head>
@@ -62,10 +69,13 @@ include_once('includes/bookFunctions.inc.php');
                                 
                                  <!--It should have your name, the course name and number, date, and anything else you’d like to put here.-->
                                 
-                                <li class='mdl-list__item'>Tel: <?php echo $user['Phone'] ?></li>
-                                <li class='mdl-list__item'>Email: <?php echo $user['Email'] ?></li>
-                                <li class='mdl-list__item'>Location: <?php echo $user['Address'].', '.$user['City'].', '.$user['Region'].', '.$user['Country'].', '.$user['Postal'] ?></li>
+                                <li class='mdl-list__item'><?php echo $user['Phone'] ?></li>
+                                <li class='mdl-list__item'><?php echo $user['Email'] ?></li>
+                                <li class='mdl-list__item'><?php echo $user['Address']?> <br>
+                                                            <?php echo $user['City'].', '.$user['Region'].', '.$user['Country']?><br>
+                                                            <?php echo $user['Postal'] ?></li>
                             </ul>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="javascript:window.location.assign('/updateuserinfo.php')">Edit Profile</button>
                         </div>
                     </div>
                     <!--<div class="mdl-cell mdl-card mdl-cell--12-col mdl-grid--no-spacing double-row mdl-shadow--2dp">-->

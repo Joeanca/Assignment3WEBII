@@ -1,6 +1,6 @@
 <!--Allow the user to edit this information. Be sure to add JavaScript validation for the following fields: l.Name, City, Country, Email (valid pattern x@x.xx). Be sure to make use of a field highlighting system similar to that used in JavaScript lab homework)-->
 
-// <?php
+<?php
 session_start();
 if(empty($_SESSION['UserID'])){
     $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
@@ -49,7 +49,7 @@ include_once('includes/bookFunctions.inc.php');
                 <div align="center">
                     
                     <!-- main form for the login - if proper credentials it will log user into their own account -->
-                    <form id="mainForm" action ="/userProfile.php" method="post">
+                    <form id="mainForm" action ="/updateinfojava.php" method="post">
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input hilightable" type="text" name="firstName">
@@ -92,7 +92,7 @@ include_once('includes/bookFunctions.inc.php');
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="city">
+                            <input class="mdl-textfield__input required hilightable" type="text" name="email">
                             <label class="mdl-textfield__label " for="email"><?php echo $user['Email']?></label>
                         </div>
                         
