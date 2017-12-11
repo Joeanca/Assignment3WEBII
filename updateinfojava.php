@@ -1,5 +1,5 @@
 <!--Allow the user to edit this information. Be sure to add JavaScript validation for the following fields: l.Name, City, Country, Email (valid pattern x@x.xx). Be sure to make use of a field highlighting system similar to that used in JavaScript lab homework)-->
-
+ 
 
 <!-- 
 Come back and add in the isset checking
@@ -31,6 +31,15 @@ $postal = $_POST['postal'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $setclause = 'SET ';
+
+
+//If the email is not valid, then it does not work. 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo "<script>alert('Invalid email');
+  window.location.href='/updateuserinfo.php';
+  </script>";
+} else { 
+//If the email does work, then set up the SQL statment
 
 if ($firstName != NULL && strlen($firstName) > 0) {
     $setclause .= 'FirstName="'.$firstName.'"';
@@ -71,6 +80,7 @@ $updateUser->setValues($sql);
 
 
 header( 'Location: /userProfile.php' );
+}
 
 ?>
 
