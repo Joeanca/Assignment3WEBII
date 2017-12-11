@@ -1,5 +1,5 @@
 <!--Allow the user to edit this information. Be sure to add JavaScript validation for the following fields: l.Name, City, Country, Email (valid pattern x@x.xx). Be sure to make use of a field highlighting system similar to that used in JavaScript lab homework)-->
-
+ 
 
 <!-- 
 Come back and add in the isset checking
