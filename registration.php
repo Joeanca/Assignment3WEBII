@@ -29,7 +29,7 @@
     </header>
 
 <?php
-    include "includes/registerFunctions.inc.php";
+    /*include "includes/registerFunctions.inc.php";*/
 ?>
         <main class="mdl-layout__content">
             <div class="page-content">
@@ -43,11 +43,11 @@
                     <div class="mdl-cell mdl-cell--4-col">
                     
                 <div class="demo-card-wide mdl-card mdl-shadow--8dp card-me">
-                        <h4 align="center">Update User Profile</h4>
+                        <h4 align="center">User Registration</h4>
                 <div align="center">
                     
                     <!-- main form for the login - if proper credentials it will log user into their own account -->
-                    <form id="mainForm" action ="/registration.php" method="post">
+                    <form id="mainForm" action ="includes/registerFunctions.inc.php" method="post">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input hilightable" type="text" name="firstName">
                             <label class="mdl-textfield__label " for="firstName">First Name</label>
@@ -127,8 +127,9 @@
         </div>
 <script>
 //highlight and blur events when inputs are selected
-    window.addEventListener('load', start);
+window.addEventListener('load', start);
 function start(){
+    
     var highlights = document.getElementsByClassName("hilightable");
     for (i=0; i<highlights.length; i++) {
         highlights[i].addEventListener("focus", function(){
@@ -157,9 +158,9 @@ function start(){
                ready = false;
             } 
         }
-            var pass1 = document.getElementById("pass1").value;
-         var pass2 = document.getElementById("pass2").value;
-         var match = false;
+        var pass1 = $("#pass1").val();
+        var pass2 = $("#pass2").val();;
+        var match = false;
         if(pass1 === pass2){
              match = true;
          }
@@ -174,10 +175,11 @@ function start(){
                    document.getElementById("pass2").classList.remove("error");
                 });
          } 
-        
+console.log()
         if (ready){
-        $(this).unbind('submit').submit();}
-        document.alert("Thanks for registering, please log in!");
+        $(this).unbind('submit').submit();
+        }
+        alert("Thanks for registering, please log in!");
         window.location.replace("login.php");
     });  
     

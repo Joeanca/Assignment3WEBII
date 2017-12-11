@@ -11,8 +11,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             $userName = $_POST['username'];
             $password = $_POST['password'];
             $tempUser = $loginInstance->getLoginDetails($userName)[0];
-            $salt = $tempUser['Salt'];
-            // $object2 = $loginInstance->getPassword($userName);
+            $salt = $tempUser[Salt];
+
             $passwordCheck = $tempUser['Password'];
             $saltyPassword = md5($password.$salt);
             if ($saltyPassword == $passwordCheck){

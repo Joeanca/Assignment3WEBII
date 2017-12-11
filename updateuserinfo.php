@@ -7,8 +7,7 @@ if(empty($_SESSION['UserID'])){
     header("Location:/login.php");
 }
 
-require_once('includes/config.php'); 
-include_once('includes/bookFunctions.inc.php');
+
 
 
 ?>
@@ -17,7 +16,10 @@ include_once('includes/bookFunctions.inc.php');
 <html lang="en">
     <head>
         <title>Update User Info</title>
-        <?php include "includes/importStatements.inc.php"; 
+        <?php 
+        include "includes/importStatements.inc.php"; 
+        require_once('includes/config.php'); 
+        include_once('includes/bookFunctions.inc.php');
           $userInstance = new UserProfileGateway();?>
         
     </head>
@@ -26,25 +28,20 @@ include_once('includes/bookFunctions.inc.php');
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
             mdl-layout--fixed-header">
             
+    <?php include 'includes/header.inc.php'; ?>
     <?php include 'includes/left-nav.inc.php'; ?>
         
         <?php 
             $user= $userInstance->getSpecificUser($_SESSION['UserID']);
            ?>
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-<main class="mdl-layout__content">
+<main class="mdl-layout__content mdl-color--grey-50 ">
+     <div class="mdl-grid">
             <div class="page-content">
                 <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col"></div>
-                    <div class="mdl-cell mdl-cell--4-col"></div>
-                    <div class="mdl-cell mdl-cell--4-col"></div>
-                </div>
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--4-col"></div>
-                    <div class="mdl-cell mdl-cell--4-col">
-                    
-                <div class="demo-card-wide mdl-card mdl-shadow--8dp card-me">
+                    <div class="mdl-grid mdl-cell--12-col ">
+                        <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--4-col demo-card-wide mdl-card mdl-shadow--8dp card-me">
                         <h4 align="center">Update User Info</h4>
                 <div align="center">
                     
@@ -52,48 +49,48 @@ include_once('includes/bookFunctions.inc.php');
                     <form id="mainForm" action ="/updateinfojava.php" method="post">
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input hilightable" type="text" name="firstName">
-                            <label class="mdl-textfield__label " for="firstName"><?php echo $user['FirstName']?></label>
+                            <input class="mdl-textfield__input hilightable" type="text" name="firstName"  value="<?php echo $user['FirstName']?>">
+                            <label class="mdl-textfield__label " for="firstName">First Name</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="lastName">
-                            <label class="mdl-textfield__label " for="lastName"><?php echo $user['LastName']?></label>
+                            <input class="mdl-textfield__input required hilightable" type="text" name="lastName"  value="<?php echo $user['LastName']?>">
+                            <label class="mdl-textfield__label " for="lastName">Last Name</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input hilightable" type="text" name="address">
-                            <label class="mdl-textfield__label " for="address"><?php echo $user['Address']?></label>
+                            <input class="mdl-textfield__input hilightable" type="text" name="address"  value="<?php echo $user['Address']?>">
+                            <label class="mdl-textfield__label " for="address">Address</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="city">
-                            <label class="mdl-textfield__label " for="city"><?php echo $user['City']?></label>
+                            <input class="mdl-textfield__input required hilightable" type="text" name="city"  value="<?php echo $user['City']?>">
+                            <label class="mdl-textfield__label " for="city">City</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input hilightable" type="text" name="region">
-                            <label class="mdl-textfield__label " for="region"><?php echo $user['Region']?></label>
+                            <input class="mdl-textfield__input hilightable" type="text" name="region"  value="<?php echo $user['Region']?>">
+                            <label class="mdl-textfield__label " for="region">Region</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="country">
-                            <label class="mdl-textfield__label " for="country"><?php echo $user['Country']?></label>
+                            <input class="mdl-textfield__input required hilightable" type="text" name="country"  value="<?php echo $user['Country']?>">
+                            <label class="mdl-textfield__label " for="country">Country</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input hilightable" type="text" name="postal">
-                            <label class="mdl-textfield__label " for="postal"><?php echo $user['Postal']?></label>
+                            <input class="mdl-textfield__input hilightable" type="text" name="postal"  value="<?php echo $user['Postal']?>">
+                            <label class="mdl-textfield__label " for="postal">Postal</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input hilightable" type="text" name="phone">
-                            <label class="mdl-textfield__label " for="phone"><?php echo $user['Phone']?></label>
+                            <input class="mdl-textfield__input hilightable" type="text" name="phone"  value="<?php echo $user['Phone']?>">
+                            <label class="mdl-textfield__label " for="phone">Phone</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input required hilightable" type="text" name="email">
-                            <label class="mdl-textfield__label " for="email"><?php echo $user['Email']?></label>
+                            <input class="mdl-textfield__input required hilightable" type="text" name="email" value="<?php echo $user['Email']?>">
+                            <label class="mdl-textfield__label " for="email">Email</label>
                         </div>
                         
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Update Profile</button>
@@ -102,6 +99,7 @@ include_once('includes/bookFunctions.inc.php');
                 </div>
                 
                 </div>
+                <div class="mdl-layout-spacer"></div>
                 
                     </div>
             
@@ -114,7 +112,9 @@ include_once('includes/bookFunctions.inc.php');
         </div>
         
         </div>
-            
+            </div>
+                                </div>
+
         </main>
         
         <script>
@@ -154,4 +154,4 @@ function start(){
         $(this).unbind('submit').submit();}
     })
 }
-        </body>
+</body>
