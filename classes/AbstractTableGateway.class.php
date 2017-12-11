@@ -94,7 +94,7 @@ include('AdapterFactory.class.php');
         }
         
         //this function is used to insert values into the DB
-        protected function setValues($insertStatement){
+        public function setValues($insertStatement){
             $adapter = $this->createAdapter();
             $sql= $insertStatement;
             $statement=$adapter->prepare($sql);

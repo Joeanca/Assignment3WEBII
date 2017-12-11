@@ -31,11 +31,12 @@ include_once('includes/universityFunctions.inc.php')
             
             <div class="mdl-cell mdl-cell--4-col card-lesson mdl-card  mdl-shadow--2dp">
                 
-                <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp drop-down">
+                <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp drop-down" style="margin:0px;">
                 <div class="mdl-card__title mdl-color--orange">
                     <h2 class="mdl-card__title-text">State List</h2>
                 </div>
                 <div style="padding:20px; height:100%;">
+                    
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height getmdl-select__fullwidth" style="width:100%">
                         <?php
                         /* Display current selected state, oherwise display message */

@@ -11,31 +11,19 @@ if(empty($_SESSION['UserID'])){
 }
 require_once('includes/config.php'); 
 include_once('includes/bookFunctions.inc.php');
-
-
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Books</title>
     <?php include "includes/importStatements.inc.php"; 
     $bookInstance = new BooksGateway();
 ?>
 </head>
-
 <body>
-    
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-            mdl-layout--fixed-header">
-            
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <?php include 'includes/header.inc.php'; ?>
     <?php include 'includes/left-nav.inc.php'; ?>
-    
     <main class="books mdl-layout__content mdl-color--grey-50">
         <div class="mdl-grid">
             <div class=" mdl-cell mdl-cell--3-col mdl-cell--12-col-phone">
@@ -43,6 +31,7 @@ include_once('includes/bookFunctions.inc.php');
                         <div class="mdl-card__title mdl-color--orange">
                           <h3 class="mdl-card__title-text">Imprints</h3>
                         </div>
+                        <!---->
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick='clearImp()'>
                                   Clear Imprint Choice
                         </button> 

@@ -61,7 +61,7 @@ include_once('includes/bookFunctions.inc.php');
                 <div class="mdl-card mdl-cell--6-col mdl-grid--no-spacing unified">
                     
                <!-- Displays user information -->
-                    <div class="mdl-cell mdl-card mdl-cell--12-col mdl-grid--no-spacing double-row ">
+                    <div class="mdl-cell  mdl-cell--12-col mdl-grid--no-spacing double-row ">
                         <div class="mdl-card__title mdl-color--orange">
                               <h2 class="mdl-card__title-text">About <?php echo $user['FirstName'].' '.$user['LastName'] ?></h2>
                         </div>
@@ -75,7 +75,9 @@ include_once('includes/bookFunctions.inc.php');
                                                             <?php echo $user['City'].', '.$user['Region'].', '.$user['Country']?><br>
                                                             <?php echo $user['Postal'] ?></li>
                             </ul>
+                            <div >
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="javascript:window.location.assign('/updateuserinfo.php')">Edit Profile</button>
+                            </div>
                         </div>
                     </div>
                     <!--<div class="mdl-cell mdl-card mdl-cell--12-col mdl-grid--no-spacing double-row mdl-shadow--2dp">-->
