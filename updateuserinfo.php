@@ -55,7 +55,7 @@ if(empty($_SESSION['UserID'])){
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="lastName"  value="<?php echo $user['LastName']?>">
-                            <label class="mdl-textfield__label " for="lastName">Last Name</label>
+                            <label class="mdl-textfield__label " for="lastName">Last Name*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -65,7 +65,7 @@ if(empty($_SESSION['UserID'])){
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="city"  value="<?php echo $user['City']?>">
-                            <label class="mdl-textfield__label " for="city">City</label>
+                            <label class="mdl-textfield__label " for="city">City*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -75,7 +75,7 @@ if(empty($_SESSION['UserID'])){
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="country"  value="<?php echo $user['Country']?>">
-                            <label class="mdl-textfield__label " for="country">Country</label>
+                            <label class="mdl-textfield__label " for="country">Country*</label>
                         </div>
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -90,7 +90,7 @@ if(empty($_SESSION['UserID'])){
                         
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input required hilightable" type="text" name="email" value="<?php echo $user['Email']?>">
-                            <label class="mdl-textfield__label " for="email">Email</label>
+                            <label class="mdl-textfield__label " for="email">Email*</label>
                         </div>
                         
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Update Profile</button>
@@ -138,7 +138,7 @@ function start(){
         e.preventDefault();
         var required = document.getElementsByClassName("required");
         var ready = false;
-        for (i=0; i<required.length; i++) {
+        for (var i=0; i<required.length; i++) {
             if (required[i].value == ""){
                required[i].classList.add("error");
                required[i].addEventListener("input", function(){
@@ -154,4 +154,5 @@ function start(){
         $(this).unbind('submit').submit();}
     })
 }
+</script>
 </body>

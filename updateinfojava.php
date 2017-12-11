@@ -32,6 +32,15 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $setclause = 'SET ';
 
+
+//If the email is not valid, then it does not work. 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo "<script>alert('Invalid email');
+  window.location.href='/updateuserinfo.php';
+  </script>";
+} else { 
+//If the email does work, then set up the SQL statment
+
 if ($firstName != NULL && strlen($firstName) > 0) {
     $setclause .= 'FirstName="'.$firstName.'"';
 } 
@@ -71,6 +80,7 @@ $updateUser->setValues($sql);
 
 
 header( 'Location: /userProfile.php' );
+}
 
 ?>
 
