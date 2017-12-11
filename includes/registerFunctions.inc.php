@@ -59,5 +59,5 @@
     $userPulledID = $registerInstance->getLastID()[0];
     echo $userPulledID;
     $registerInstance->usersInsert($userPulledID, $firstName, $lastName, $address, $city, $region, $country, $postal, $phone, $email, $privacy);
-    echo "<script>window.location.replace('../login.php');</script>";
+    echo "<script>window.location.replace('../userProfile.php');</script>";
 ?>

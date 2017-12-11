@@ -177,21 +177,9 @@ function start(){
          } 
 console.log()
         if (ready){
-<<<<<<< HEAD
-        $(this).unbind('submit').submit();}
-<<<<<<< HEAD
-<<<<<<< HEAD
-    })
-=======
-    });
-
-=======
-        document.alert("Thanks for registering, please log in!");
-=======
         $(this).unbind('submit').submit();
         }
         alert("Thanks for registering, please log in!");
->>>>>>> master
         window.location.replace("login.php");
     });  
     
@@ -214,12 +202,6 @@ console.log()
                  this.classList.remove("error");
          }
      });
-<<<<<<< HEAD
->>>>>>> master
-
->>>>>>> master
-=======
->>>>>>> master
 }
 </script>
 </body>
