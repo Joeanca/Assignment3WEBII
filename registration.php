@@ -129,7 +129,7 @@
 //highlight and blur events when inputs are selected
 window.addEventListener('load', start);
 function start(){
-    
+    // HIGHLIGHTS THE REQUIRED FIELDS
     var highlights = document.getElementsByClassName("hilightable");
     for (i=0; i<highlights.length; i++) {
         highlights[i].addEventListener("focus", function(){
@@ -183,6 +183,7 @@ console.log()
         window.location.replace("login.php");
     });  
     
+    // EVENT LISTENER FOR EMAIL VALIDATION 
      document.getElementById("email").addEventListener("change", function(){
          var email = document.getElementById("email").value;
          var emailVal = false;

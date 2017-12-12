@@ -21,6 +21,9 @@ class UserProfileGateway extends AbstractTableGateway {
     public function getSpecificUser($userID){
         return $this->getWithKeyValue("select UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email from Users", UserID, $userID)[0];
     }
+       public function updateLogin($userID, $email){
+        $this->setValues("Update UsersLogin SET `UserName` = '$email' WHERE UserID= $userID");
+    }
     
 }
 ?>

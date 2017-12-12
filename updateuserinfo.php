@@ -118,8 +118,11 @@ if(empty($_SESSION['UserID'])){
         </main>
         
         <script>
+        
+        // LOAD EVENT LISTENER
     window.addEventListener('load', start);
 function start(){
+    // HIGHLIGHTS FIELDS REQUIRED 
     var highlights = document.getElementsByClassName("hilightable");
     for (i=0; i<highlights.length; i++) {
         highlights[i].addEventListener("focus", function(){
@@ -134,6 +137,7 @@ function start(){
             this.classList.toggle("hilightable");
         }); 
     }
+    // MAKE SURE REQUIRED SPACES ARE VALIDATED
     document.getElementById('mainForm').addEventListener("submit", function(e){
         e.preventDefault();
         var required = document.getElementsByClassName("required");

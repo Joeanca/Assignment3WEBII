@@ -105,6 +105,7 @@
 <script>
     window.addEventListener('load', start);
 function start(){
+    // HIGHLIGHT THE REQUIRED FIELDS
     var highlights = document.getElementsByClassName("hilightable");
     for (i=0; i<highlights.length; i++) {
         highlights[i].addEventListener("focus", function(){
@@ -119,6 +120,7 @@ function start(){
             this.classList.toggle("hilightable");
         }); 
     }
+    // HIGHLIGHT THE REQUIRED FIELDS 
     document.getElementById('mainForm').addEventListener("submit", function(e){
         e.preventDefault();
         var required = document.getElementsByClassName("required");

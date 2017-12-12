@@ -75,8 +75,9 @@ $sql .= $setclause;
 $sql .= ' Where UserID='.$user['UserID'];
 
 //echo $sql;
-
+// UPDATE THE DABASE WITH THE VALUES SET
 $updateUser->setValues($sql);
+$updateUser->updateLogin($user['UserID'], $email);
 
 
 header( 'Location: /userProfile.php' );
