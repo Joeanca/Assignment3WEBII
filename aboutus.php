@@ -58,7 +58,7 @@ include_once('includes/bookFunctions.inc.php');
                                 <li class='mdl-list__item'>Catie: User Profile, validation, gateway functions, update database</li>
                                 <li class='mdl-list__item'>Connor: Services, registration, analytics functions, css, takeover registration code implementation </li>
                                 <li class='mdl-list__item'>Jorge: JSON Header implementation, Re-work simple search, Services, analytics functions, css, takeover registration code implementation</li>
-                                <li class='mdl-list__item'>Nicole: registration form, some js functions, some gateway calls none tested, or working. </li>
+                                <li class='mdl-list__item'>Nicole: registration form, some js functions. </li>
 
                                 <li class='mdl-list__item'></li>
                             </ul>
